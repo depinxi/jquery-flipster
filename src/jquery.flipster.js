@@ -1,7 +1,8 @@
 /* jshint browser: true, jquery: true, devel: true */
 /* global window, jQuery */
 
-(function($, window, undefined) {
+
+var Flipster = function($, window, undefined) {
     'use strict';
 
     function throttle(func, delay) {
@@ -709,4 +710,9 @@
             if ( !self.hasClass(classes.active) ) { init(); }
         });
     };
-})(jQuery, window);
+};
+
+if (typeof (module) == 'object')
+	module.exports = Flipster
+else if (typeof (window) != 'undefined' && typeof (jQuery) != 'undefined')
+	Flipster(jQuery, window)
